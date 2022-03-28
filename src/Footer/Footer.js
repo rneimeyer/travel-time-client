@@ -7,10 +7,10 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>Created by Rebecca Neimeyer - 2022</p>
-      <a href="https://www.linkedin.com/in/rebecca-neimeyer/" target="_blank">
+      <a href="https://www.linkedin.com/in/rebecca-neimeyer/" target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
       </a>
-      <a href="https://github.com/rneimeyer" target="_blank">
+      <a href="https://github.com/rneimeyer" target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faGithub} className="social-icon" />
       </a>
     </div>
