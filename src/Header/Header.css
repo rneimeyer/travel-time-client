@@ -4,8 +4,15 @@
 
 .navbar-links {
     font-size: 20px;
+    padding: 5px;
 }
 
 .navbar-brand {
     font-size: 25px;
 }
+
+.me-auto {
+    position: fixed;
+    right: 10px;
+}
+
