@@ -8,10 +8,10 @@ const Footer = () => {
     <div className="footer">
       <p>Created by Rebecca Neimeyer - 2022</p>
       <a href="https://www.linkedin.com/in/rebecca-neimeyer/" target="_blank">
-        <FontAwesomeIcon icon={faLinkedin} />
+        <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
       </a>
       <a href="https://github.com/rneimeyer" target="_blank">
-        <FontAwesomeIcon icon={faGithub} />
+        <FontAwesomeIcon icon={faGithub} className="social-icon" />
       </a>
     </div>
   );
