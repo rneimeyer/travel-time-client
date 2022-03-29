@@ -2,10 +2,15 @@
     bottom: 0;
     position: absolute;
     width: 100%;
-    color: #05031D;
+    color: #0f0a44;
 }
 
 .social-icon {
     padding: 0px 10px;
     font-size: 25px;
+    color: #6956a1;
+}
+
+.social-icon:hover {
+    color: #BEB1D1;
 }
