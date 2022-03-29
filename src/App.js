@@ -13,6 +13,7 @@ function App() {
   const [traveller, setTraveller] = useState({name: "", email: ""});
   const [travellers, setTravellers] = useState([]);
   const [currentTraveller, setCurrentTraveller] = useState("");
+  const [travellerId, setTravellerId] = useState("");
 
   useEffect(() => {
     fetch(`${urlBase}/traveller/`)
@@ -25,7 +26,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Home urlBase={urlBase} traveller={traveller} setTraveller={setTraveller} travellers={travellers} setTravellers={setTravellers} currentTraveller={currentTraveller} setCurrentTraveller={setCurrentTraveller} />} />
+          <Route path="/" element={<Home urlBase={urlBase} traveller={traveller} setTraveller={setTraveller} travellers={travellers} setTravellers={setTravellers} currentTraveller={currentTraveller} setCurrentTraveller={setCurrentTraveller} travellerId={travellerId} setTravellerId={setTravellerId}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/all-trips" element={<AllTrips />} />
           <Route path="/about" element={<About />} />
