@@ -55,9 +55,15 @@ const Home = ({
         .then((data) => setTravellers(data.traveller))
         .then(() => setTraveller({ name: "", email: "" }))
     }
-    
   };
-  console.log(travellerId);
+
+  const showMessage = () => {
+      if (verification === false) {
+          return <div>Thanks for joining Travel Time, {currentTraveller.name}!</div>
+      } else {
+          return <div>Welcome back, {currentTraveller.name}!</div>
+      }
+  }
 
   return (
     <div className="home">
@@ -65,7 +71,6 @@ const Home = ({
       <h3>We're here to help you plan your next vacation</h3>
       <h3>Please sign up or log in below to get started!</h3>
       <div className="form-container">
-        <div>
           <h2>Sign Up/Log In</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
@@ -89,11 +94,10 @@ const Home = ({
             <Button type="submit">Submit</Button>
           </Form>
         </div>
-      </div>
-      {verification === false ? (
-        <div>Thanks for joining Travel Time, {currentTraveller.name}!</div>
+      {verification == undefined ? (
+        <div></div>
       ) : (
-        <div>Welcome back, {currentTraveller.name}!</div>
+        showMessage()
       )}
     </div>
   );
