@@ -7,7 +7,7 @@ const Header = () => {
     <div className="header">
       <Navbar collapseOnSelect bg="white" expand="md" fixed="top">
         <Container>
-          <Navbar.Brand className="brand">Travel Time</Navbar.Brand>
+          <Navbar.Brand className="brand" style={{color: '#F9B9AD'}}>Travel Time</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

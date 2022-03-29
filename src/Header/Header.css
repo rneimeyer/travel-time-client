@@ -5,10 +5,21 @@
 .navbar-links {
     font-size: 20px;
     padding: 5px;
+    text-decoration: none;
+    color: #605A72;
+}
+
+.navbar-links:hover {
+    color: #BEB1D1;
 }
 
 .navbar-brand {
     font-size: 25px;
+    color: #F9B9AD;
+}
+
+.brand.navbar-brand {
+    color: #F9B9AD;
 }
 
 .me-auto {
