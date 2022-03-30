@@ -3,21 +3,29 @@ h1 {
 }
 
 Form {
-    margin-left: 5%;
-    width: 40%;
     text-align: left;
 }
 
 .form-container {
-   align-items: center;
-}
-
-.home-img {
-    /* height: 40vh; */
-    width: 100%;
+   width: 40%;
+   margin: 0 auto;
 }
 
 .home {
     background-image: url("./../assets/beachplane.png");
     height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+button.btn.btn-primary {
+    color: white;
+    background-color: #F78359;
+    border: none;
+}
+
+.button-link {
+    color: white;
+    text-decoration: none;
 }
