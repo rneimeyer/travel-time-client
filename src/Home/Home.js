@@ -1,6 +1,7 @@
 import "./Home.css";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import beachplane from "./../assets/beachplane.png"
 
 const Home = ({
   urlBase,
@@ -66,6 +67,7 @@ const Home = ({
   return (
     <div className="home">
       <h1>Welcome to Travel Time</h1>
+      {/* <img className="home-img" src={beachplane} /> */}
       <h3>We're here to help you plan your next vacation</h3>
       <h3>Please sign up or log in below to get started!</h3>
       <div className="form-container">

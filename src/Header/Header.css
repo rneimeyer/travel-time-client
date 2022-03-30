@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Billion Dreams;
+    src: url("./../assets/BillionDreams_PERSONAL.ttf");
+    font-size: 100%;
+  }
+
 .header {
     width: 100%;
 }
@@ -14,12 +20,14 @@
 }
 
 .navbar-brand {
-    font-size: 25px;
+    /* font-size: 50px; */
     color: #F9B9AD;
+    font-family: Billion Dreams;
 }
 
 .brand.navbar-brand {
     color: #F9B9AD;
+    font-size: 50px;
 }
 
 .me-auto {

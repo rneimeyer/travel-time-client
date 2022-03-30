@@ -11,3 +11,13 @@ Form {
 .form-container {
    align-items: center;
 }
+
+.home-img {
+    /* height: 40vh; */
+    width: 100%;
+}
+
+.home {
+    background-image: url("./../assets/beachplane.png");
+    height: 80vh;
+}
