@@ -15,7 +15,7 @@ function App() {
   const [travellers, setTravellers] = useState([]);
   const [currentTraveller, setCurrentTraveller] = useState("");
   const [travellerId, setTravellerId] = useState("");
-  const [trip, setTrip] = useState([]);
+  const [currentTrip, setCurrentTrip] = useState([]);
 
   useEffect(() => {
     fetch(`${urlBase}/traveller/`)
@@ -30,9 +30,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home urlBase={urlBase} traveller={traveller} setTraveller={setTraveller} travellers={travellers} setTravellers={setTravellers} currentTraveller={currentTraveller} setCurrentTraveller={setCurrentTraveller} travellerId={travellerId} setTravellerId={setTravellerId}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} trip={trip} setTrip={setTrip} />} />
+          <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} currentTrip={currentTrip} setCurrentTrip={setCurrentTrip} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/all-trips/:trip" element={<Trip trip={trip} />} />
+          <Route path="/all-trips/:trip" element={<Trip urlBase={urlBase} currentTrip={currentTrip} />} />
         </Routes>
       </main>
       <Footer />
