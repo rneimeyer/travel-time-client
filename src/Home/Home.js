@@ -1,7 +1,6 @@
 import "./Home.css";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import beachplane from "./../assets/beachplane.png"
 import { Link } from "react-router-dom";
 
 const Home = ({
