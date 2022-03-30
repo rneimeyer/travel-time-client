@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import plane_wing from "./../assets/plane_wing.png"
 
-const AllTrips = ({ urlBase, currentTraveller, travellerId, trip, setTrip }) => {
+const AllTrips = ({ urlBase, currentTraveller, travellerId, currentTrip, setCurrentTrip }) => {
 console.log(currentTraveller)
     const [trips, setTrips] = useState([])
 
@@ -25,7 +25,7 @@ console.log(currentTraveller)
         let id=event.target.id
         fetch(`${urlBase}/trip/${id}`)
         .then((response) => response.json())
-        .then((data) => setTrip(data.trip))
+        .then((data) => setCurrentTrip(data.trip))
     }
 
     const yourTrips = trips.map((trip) => {
@@ -64,7 +64,7 @@ console.log(currentTraveller)
           <h3>
             Please <Link className="home-link" to="/">sign in</Link> to view and update your trips!
           </h3>
-          <img className="plane-wing" src={plane_wing} />
+          <img className="plane-wing" src={plane_wing} alt="plane wing over city" />
         </div>
       ) : (
         <div>
