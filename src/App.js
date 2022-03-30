@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home urlBase={urlBase} traveller={traveller} setTraveller={setTraveller} travellers={travellers} setTravellers={setTravellers} currentTraveller={currentTraveller} setCurrentTraveller={setCurrentTraveller} travellerId={travellerId} setTravellerId={setTravellerId}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/all-trips" element={<AllTrips />} currentTraveller={currentTraveller} />
+          <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </main>

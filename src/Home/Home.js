@@ -26,7 +26,6 @@ const Home = ({
     });
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     let emails = travellers.map((traveller) => traveller.email);
@@ -37,7 +36,6 @@ const Home = ({
       let person = travellers.filter((n) => n.email === traveller.email);
       setTravellerId(person[0]._id);
       setTraveller({ name: "", email: "" });
-    
     } else {
       setVerfication(false);
       setCurrentTraveller(traveller);
@@ -94,7 +92,7 @@ const Home = ({
             <Button type="submit">Submit</Button>
           </Form>
         </div>
-      {verification == undefined ? (
+      {verification === undefined ? (
         <div></div>
       ) : (
         showMessage()
