@@ -3,7 +3,7 @@ import Flight from "./../Flight/Flight";
 import Hotel from "./../Hotel/Hotel";
 
 const Trip = ({ urlBase, currentTrip }) => {
-  console.log(currentTrip);
+  console.log(currentTrip.flights);
 
 const cleanDate = (date) => {
     const d = new Date(date);
@@ -14,17 +14,17 @@ const cleanDate = (date) => {
 
   return (
     <div className="trip">
-      {currentTrip[0] === undefined ? (
+      {currentTrip.name === undefined ? (
         <div></div>
       ) : (
         <div>
-          <h1 className="trip-name">{currentTrip[0].name}</h1>
-          <h3>Budget: ${currentTrip[0].budget}</h3>
-          <h3>From {cleanDate(currentTrip[0].start_date)} to {cleanDate(currentTrip[0].end_date)}</h3>
+          <h1 className="trip-name">{currentTrip.name}</h1>
+          <h3>Budget: ${currentTrip.budget}</h3>
+          <h3>From {cleanDate(currentTrip.start_date)} to {cleanDate(currentTrip.end_date)}</h3>
           <h3>Flights</h3>
-          <Flight flights={currentTrip[0].flights} />
+          <Flight flights={currentTrip.flights} />
           <h3>Hotels</h3>
-          <Hotel hotels={currentTrip[0].hotels} />
+          <Hotel hotels={currentTrip.hotels} />
         </div>
       )}
     </div>
