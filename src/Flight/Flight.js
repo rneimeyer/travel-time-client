@@ -2,7 +2,7 @@ import "./Flight.css";
 import { Button, Form, Modal, InputGroup, Card } from "react-bootstrap";
 import { useState } from "react";
 
-const Flight = ({ urlBase, flights, tripId, cleanDate }) => {
+const Flight = ({ urlBase, flights, tripId, cleanDate, setRefresh }) => {
 console.log(flights)
 
 const [show, setShow] = useState(false);
@@ -33,6 +33,8 @@ const handleDelete = (event) => {
     fetch(`${urlBase}/flight/${id}`, {
         method: "DELETE",
     }).then((response) => response.json())
+    .then(() => setRefresh(true))
+    .then(() => setRefresh(false))
 }
 
     const yourFlights = flights.map((flight) => {
@@ -45,7 +47,7 @@ const handleDelete = (event) => {
                 <Card.Text>Flight Number: {flight.flight_number}</Card.Text>
                 <Card.Text>{cleanDate(flight.date)}</Card.Text>
                 <Card.Text>Departure: {flight.starting_airport}, {flight.departure_time}</Card.Text>
-                <Card.Text>Arrival: {flight.ending_airport}, {flight.arrival}</Card.Text>
+                <Card.Text>Arrival: {flight.ending_airport}, {flight.arrival_time}</Card.Text>
                 <Card.Text>Price: ${flight.price}</Card.Text>
                 <Button onClick={handleDelete} id={flight._id}>Delete Flight</Button>
                 </Card.Body>
@@ -53,6 +55,8 @@ const handleDelete = (event) => {
             </div>
         )
     })
+
+
 
     const handleFlightChange = (event) => {
         event.persist();
@@ -78,6 +82,8 @@ const handleDelete = (event) => {
         .then((data) => putNewFlight(data.flight))
         .then(()=>setNewFlight({flight_type: "", airline: "", flight_number: "", date: Date, starting_airport: "", ending_airport: "", departure_time: "", arrival_time: "", price: Number}))
         .then(()=>handleClose())
+        .then(() => setRefresh(true))
+        .then(() => setRefresh(false))
     }
 
   return (

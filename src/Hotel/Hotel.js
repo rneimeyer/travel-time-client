@@ -2,7 +2,7 @@ import "./Hotel.css";
 import { Button, Form, Modal, InputGroup, Card } from "react-bootstrap";
 import { useState } from "react";
 
-const Hotel = ({ urlBase, hotels, tripId, cleanDate }) => {
+const Hotel = ({ urlBase, hotels, tripId, cleanDate, setRefresh }) => {
 
     const [show, setShow] = useState(false);
     const [newHotel, setNewHotel] = useState({hotel: "", room_type: "", check_in: Date, check_out: Date, price: Number, ammenities: ""})
@@ -32,6 +32,8 @@ const Hotel = ({ urlBase, hotels, tripId, cleanDate }) => {
         fetch(`${urlBase}/hotel/${id}`, {
             method: "DELETE",
         }).then((response) => response.json())
+        .then(() => setRefresh(true))
+        .then(() => setRefresh(false))
     }
 
         const yourHotels = hotels.map((hotel) => {
@@ -76,6 +78,8 @@ const Hotel = ({ urlBase, hotels, tripId, cleanDate }) => {
         .then((data)=>putNewHotel(data.hotel))
         .then(()=>setNewHotel({hotel: "", room_type: "", check_in: Date, check_out: Date, price: Number, ammenities: ""}))
         .then(()=>handleClose())
+        .then(() => setRefresh(true))
+        .then(() => setRefresh(false))
     }
 
   return (
