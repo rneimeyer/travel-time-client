@@ -12,9 +12,6 @@ const cleanDate = (date) => {
     return newDate;
 }
 
-let startDate = cleanDate(currentTrip[0].start_date)
-        let endDate = cleanDate(currentTrip[0].end_date)
-
   return (
     <div className="trip">
       {currentTrip[0] === undefined ? (
@@ -23,11 +20,11 @@ let startDate = cleanDate(currentTrip[0].start_date)
         <div>
           <h1 className="trip-name">{currentTrip[0].name}</h1>
           <h3>Budget: ${currentTrip[0].budget}</h3>
-          <h3>From {startDate} to {endDate}</h3>
+          <h3>From {cleanDate(currentTrip[0].start_date)} to {cleanDate(currentTrip[0].end_date)}</h3>
           <h3>Flights</h3>
-          <Flight />
+          <Flight flights={currentTrip[0].flights} />
           <h3>Hotels</h3>
-          <Hotel />
+          <Hotel hotels={currentTrip[0].hotels} />
         </div>
       )}
     </div>
