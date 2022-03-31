@@ -1,10 +1,9 @@
-.box {
-    border: 2px solid black;
-    width: 200px;
-}
-
 .hotel {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.hotel-flight-name.card-title.h5 {
+    font-family: Modern Sans Light;
 }
