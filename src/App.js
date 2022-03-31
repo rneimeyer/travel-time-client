@@ -32,7 +32,7 @@ function App() {
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} currentTrip={currentTrip} setCurrentTrip={setCurrentTrip} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/all-trips/:trip" element={<Trip urlBase={urlBase} currentTrip={currentTrip} />} />
+          <Route path="/all-trips/:trip" element={<Trip urlBase={urlBase} currentTrip={currentTrip} setCurrentTrip={setCurrentTrip} />} />
         </Routes>
       </main>
       <Footer />
