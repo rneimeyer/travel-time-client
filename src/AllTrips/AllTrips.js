@@ -135,9 +135,9 @@ const AllTrips = ({
 
   return (
     <div className="all-trips">
-      <h1>Your Trips</h1>
       {currentTraveller === "" ? (
         <div>
+            <h1>Your Trips</h1>
           <h3>
             Please{" "}
             <Link className="home-link" to="/">
@@ -153,9 +153,9 @@ const AllTrips = ({
         </div>
       ) : (
         <div>
-          <div className="current-traveller">
-            Current Traveller: {currentTraveller.name}
-          </div>
+          <h1 className="current-traveller">
+            {currentTraveller.name}'s Trips
+          </h1>
           <Button onClick={handleShow}>Add a Trip</Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
