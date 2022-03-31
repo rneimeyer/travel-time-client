@@ -15,7 +15,7 @@ function App() {
   const [travellers, setTravellers] = useState([]);
   const [currentTraveller, setCurrentTraveller] = useState("");
   const [travellerId, setTravellerId] = useState("");
-  const [currentTrip, setCurrentTrip] = useState([]);
+  const [currentTrip, setCurrentTrip] = useState({});
 
   useEffect(() => {
     fetch(`${urlBase}/traveller/`)
