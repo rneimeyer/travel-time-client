@@ -28,6 +28,13 @@ const putNewFlight = (flight) => {
     .then((data) => flights(data))
 }
 
+const handleDelete = (event) => {
+    let id = event.target.id
+    fetch(`${urlBase}/flight/${id}`, {
+        method: "DELETE",
+    }).then((response) => response.json())
+}
+
     const yourFlights = flights.map((flight) => {
         return (
             <div key={flight._id} className="box">
@@ -38,6 +45,7 @@ const putNewFlight = (flight) => {
                 <p>Departure: {flight.starting_airport}, {flight.departure_time}</p>
                 <p>Arrival: {flight.ending_airport}, {flight.arrival}</p>
                 <p>Price: ${flight.price}</p>
+                <Button onClick={handleDelete} id={flight._id}>Delete Flight</Button>
             </div>
         )
     })
