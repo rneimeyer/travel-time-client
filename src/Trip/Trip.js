@@ -108,7 +108,7 @@ const updateTrip = (event) => {
           <h3>Flights</h3>
           <Flight flights={currentTrip.flights} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} />
           <h3>Hotels</h3>
-          <Hotel hotels={currentTrip.hotels} />
+          <Hotel hotels={currentTrip.hotels} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} />
         </div>
       )}
     </div>
