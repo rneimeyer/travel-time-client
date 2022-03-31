@@ -1,5 +1,5 @@
 import "./Flight.css";
-import { Button, Form, Modal, InputGroup } from "react-bootstrap";
+import { Button, Form, Modal, InputGroup, Card } from "react-bootstrap";
 import { useState } from "react";
 
 const Flight = ({ urlBase, flights, tripId, cleanDate }) => {
@@ -25,7 +25,7 @@ const putNewFlight = (flight) => {
         body: JSON.stringify(data),
     })
     .then(response => response.json())
-    .then((data) => flights(data))
+    .then((data) => console.log(data))
 }
 
 const handleDelete = (event) => {
@@ -38,14 +38,18 @@ const handleDelete = (event) => {
     const yourFlights = flights.map((flight) => {
         return (
             <div key={flight._id} className="box">
-                <div>{flight.flight_type}</div>
-                <p>Airline: {flight.airline}</p>
-                <p>Flight Number: {flight.flight_number}</p>
-                <p>{cleanDate(flight.date)}</p>
-                <p>Departure: {flight.starting_airport}, {flight.departure_time}</p>
-                <p>Arrival: {flight.ending_airport}, {flight.arrival}</p>
-                <p>Price: ${flight.price}</p>
+                <Card>
+                    <Card.Body>
+                <Card.Title className="hotel-flight-name">{flight.airline}</Card.Title>
+                <Card.Text>{flight.flight_type}</Card.Text>
+                <Card.Text>Flight Number: {flight.flight_number}</Card.Text>
+                <Card.Text>{cleanDate(flight.date)}</Card.Text>
+                <Card.Text>Departure: {flight.starting_airport}, {flight.departure_time}</Card.Text>
+                <Card.Text>Arrival: {flight.ending_airport}, {flight.arrival}</Card.Text>
+                <Card.Text>Price: ${flight.price}</Card.Text>
                 <Button onClick={handleDelete} id={flight._id}>Delete Flight</Button>
+                </Card.Body>
+                </Card>
             </div>
         )
     })
