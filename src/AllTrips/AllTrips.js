@@ -8,8 +8,7 @@ const AllTrips = ({
   urlBase,
   currentTraveller,
   travellerId,
-  currentTrip,
-  setCurrentTrip,
+  setCurrentTripId,
 }) => {
   console.log(currentTraveller);
   const [trips, setTrips] = useState([]);
@@ -64,7 +63,7 @@ const AllTrips = ({
     let id = event.target.id;
     fetch(`${urlBase}/trip/${id}`)
       .then((response) => response.json())
-      .then((data) => setCurrentTrip(data.trip));
+      .then((data) => setCurrentTripId(data.trip._id));
   };
 
   const handleDelete = (event) => {
