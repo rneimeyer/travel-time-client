@@ -2,13 +2,21 @@ import "./Trip.css";
 import Flight from "./../Flight/Flight";
 import Hotel from "./../Hotel/Hotel";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Trip = ({ urlBase, currentTrip, setCurrentTrip }) => {
-  console.log(currentTrip.flights);
+const Trip = ({ urlBase, currentTripId }) => {
+console.log(currentTripId)
 
   const [show, setShow] = useState(false);
   const [tripUpdate, setTripUpdate] = useState({name: "", budget: Number, start_date: Date, end_date: Date})
+  const [currentTrip, setCurrentTrip] = useState({});
+  const [refresh, setRefresh] = useState(false)
+
+  const showCurrentTrip = () => {
+      fetch(`${urlBase}/trip/${currentTripId}`)
+      .then((response) => response.json())
+      .then((data) => setCurrentTrip(data.trip))
+  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -45,6 +53,13 @@ const updateTrip = (event) => {
     .then(()=>setTripUpdate({name: "", budget: Number, start_date: Date, end_date: Date}))
     .then(()=>handleClose())
 }
+
+useEffect(() => {
+    if (currentTripId !== "") {
+        showCurrentTrip();
+        console.log("fetch")
+    }
+}, [show, refresh])
 
   return (
     <div className="trip">
@@ -106,9 +121,9 @@ const updateTrip = (event) => {
           <h3>Budget: ${currentTrip.budget}</h3>
           <h3>From {cleanDate(currentTrip.start_date)} to {cleanDate(currentTrip.end_date)}</h3>
           <h3>Flights</h3>
-          <Flight flights={currentTrip.flights} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} />
+          <Flight flights={currentTrip.flights} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} setRefresh={setRefresh} />
           <h3>Hotels</h3>
-          <Hotel hotels={currentTrip.hotels} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} />
+          <Hotel hotels={currentTrip.hotels} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} setRefresh={setRefresh} />
         </div>
       )}
     </div>
