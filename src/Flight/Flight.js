@@ -2,7 +2,7 @@ import "./Flight.css";
 import { Button, Form, Modal, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 
-const Flight = ({ urlBase, flights, tripId }) => {
+const Flight = ({ urlBase, flights, tripId, cleanDate }) => {
 console.log(flights)
 
 const [show, setShow] = useState(false);
@@ -31,8 +31,12 @@ const putNewFlight = (flight) => {
     const yourFlights = flights.map((flight) => {
         return (
             <div key={flight._id} className="box">
-                <div>{flight.name}</div>
-                <a href={flight.link} target="_blank">Link to flight</a>
+                <div>{flight.flight_type}</div>
+                <p>Airline: {flight.airline}</p>
+                <p>Flight Number: {flight.flight_number}</p>
+                <p>{cleanDate(flight.date)}</p>
+                <p>Departure: {flight.starting_airport}, {flight.departure_time}</p>
+                <p>Arrival: {flight.ending_airport}, {flight.arrival}</p>
                 <p>Price: ${flight.price}</p>
             </div>
         )
@@ -65,7 +69,7 @@ const putNewFlight = (flight) => {
     }
 
   return (
-    <div className="flight">
+    <div>
         <Button onClick={handleShow}>Add a Flight</Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -172,7 +176,7 @@ const putNewFlight = (flight) => {
         {flights[0] === undefined ? (
             <div>Add a flight!</div>
         ) : (
-            <div>{yourFlights}</div>  
+            <div className="flight">{yourFlights}</div>  
         )}
     </div>
   );
