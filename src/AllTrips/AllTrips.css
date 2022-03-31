@@ -10,3 +10,15 @@
 .plane-wing {
     height: 60vh;
 }
+
+.btn-primary a {
+    color: white;
+    text-decoration: none;
+}
+
+.trip-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
