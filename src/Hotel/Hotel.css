@@ -2,3 +2,9 @@
     border: 2px solid black;
     width: 200px;
 }
+
+.hotel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
