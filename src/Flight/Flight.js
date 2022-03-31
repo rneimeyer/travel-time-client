@@ -14,7 +14,11 @@ console.log(flights)
 
   return (
     <div className="flight">
-     {yourFlights}
+        {flights[0] === undefined ? (
+            <div>Add a flight!</div>
+        ) : (
+            <div>{yourFlights}</div>  
+        )}
     </div>
   );
 };

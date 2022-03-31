@@ -14,7 +14,11 @@ const Hotel = ({ hotels }) => {
 
   return (
     <div className="hotel">
-     {yourHotels}
+     {hotels[0] === undefined ? (
+            <div>Add a hotel!</div>
+        ) : (
+            <div>{yourHotels}</div>  
+        )}
     </div>
   );
 };
