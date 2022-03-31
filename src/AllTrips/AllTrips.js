@@ -86,9 +86,9 @@ const AllTrips = ({
             <Card.Text>Budget: ${trip.budget}</Card.Text>
             <Card.Text>Start Date: {startDate}</Card.Text>
             <Card.Text>End Date: {endDate}</Card.Text>
-            <Button onClick={getTrip} id={trip._id}>
-              <Link to={"/all-trips/" + trip.name}>View Trip Details</Link>
-            </Button>
+            
+              <Link to={"/all-trips/" + trip.name}><Button onClick={getTrip} id={trip._id}>View Trip Details</Button></Link>
+            
             <Button onClick={handleDelete} id={trip._id}>Delete Trip</Button>
           </Card.Body>
         </Card>
