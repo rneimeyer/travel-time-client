@@ -73,6 +73,7 @@ const AllTrips = ({
           method: "DELETE",
       }).then((response) => response.json())
       .then(() => setRefresh(true))
+      .then(() => setRefresh(false))
   }
 
   const yourTrips = trips.map((trip) => {
@@ -128,6 +129,7 @@ const AllTrips = ({
       })
       .then((response) => response.json())
       .then((data) => putNewTrip(data.trip))
+      .then(()=>setNewTrip({name: "", budget: Number, start_date: Date, end_date: Date}))
       .then(()=>handleClose())
   };
 
