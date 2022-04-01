@@ -67,7 +67,7 @@ const Flight = ({
             <Card.Title className="hotel-flight-name">
               {flight.airline}
             </Card.Title>
-            <Card.Text>{flight.flight_type}</Card.Text>
+            <Card.Text style={{background: "#f9b8ad8f"}}>{flight.flight_type}</Card.Text>
             <Card.Text>Flight Number: {flight.flight_number}</Card.Text>
             <Card.Text>{cleanDate(flight.date)}</Card.Text>
             <Card.Text>
@@ -131,7 +131,10 @@ const Flight = ({
 
   return (
     <div>
+        <div className="section-title">
+            <h3>Flights</h3>
       <Button onClick={handleShow}>Add a Flight</Button>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add a Flight!</Modal.Title>
@@ -235,12 +238,9 @@ const Flight = ({
         </Modal.Body>
       </Modal>
       {flights[0] === undefined ? (
-        <div>Add a flight!</div>
+        <div>No flights yet!</div>
       ) : (
-        <div>
-          {flightSum}
-          <div className="flight">{yourFlights}</div>{" "}
-        </div>
+          <div className="flight">{yourFlights}</div>
       )}
     </div>
   );
