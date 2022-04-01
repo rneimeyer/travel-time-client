@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/travel-time-client/static/css/main.d9fb1e05.css",
+    "main.js": "/travel-time-client/static/js/main.91c509d3.js",
+    "static/js/787.36007d97.chunk.js": "/travel-time-client/static/js/787.36007d97.chunk.js",
+    "static/media/map.png": "/travel-time-client/static/media/map.0df0f2daba62967eb103.png",
+    "static/media/plane_wing.png": "/travel-time-client/static/media/plane_wing.a1410fdc8afc765dedfd.png",
+    "static/media/beachplane.png": "/travel-time-client/static/media/beachplane.3d90bd7cf7858e06a073.png",
+    "static/media/BillionDreams_PERSONAL.ttf": "/travel-time-client/static/media/BillionDreams_PERSONAL.c3670514876327a19952.ttf",
+    "static/media/ModernSans-Light.otf": "/travel-time-client/static/media/ModernSans-Light.bebb6d2d7adb7481905a.otf",
+    "index.html": "/travel-time-client/index.html",
+    "main.d9fb1e05.css.map": "/travel-time-client/static/css/main.d9fb1e05.css.map",
+    "main.91c509d3.js.map": "/travel-time-client/static/js/main.91c509d3.js.map",
+    "787.36007d97.chunk.js.map": "/travel-time-client/static/js/787.36007d97.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9fb1e05.css",
+    "static/js/main.91c509d3.js"
+  ]
+}
