@@ -59,12 +59,12 @@ const Home = ({
   const showMessage = () => {
       if (verification === false) {
           return (<div>
-              <p>Thanks for joining Travel Time, {currentTraveller.name}!</p>
+              <p className="welcome-message">Thanks for joining Travel Time, {currentTraveller.name}!</p>
               <Button><Link className="button-link" to="/all-trips">Add Your First Trip!</Link></Button>
               </div>)
       } else {
           return (<div>
-              <p>Welcome back, {currentTraveller.name}!</p>
+              <p className="welcome-message">Welcome back, {currentTraveller.name}!</p>
               <Link className="button-link" to="/all-trips"><Button>Go to Your Trips!</Button></Link>
               </div>)
       }
@@ -72,6 +72,7 @@ const Home = ({
 
   return (
     <div className="home">
+        <div className="home-text">
       <h1>Welcome to Travel Time</h1>
       <h3>We're here to help you plan your next vacation</h3>
       <h3>Please sign up or log in below to get started!</h3>
@@ -104,6 +105,7 @@ const Home = ({
       ) : (
         showMessage()
       )}
+      </div>
     </div>
   );
 };
