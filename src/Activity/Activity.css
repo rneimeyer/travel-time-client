@@ -1,0 +1,9 @@
+.activity-name.card-title.h5 {
+    font-family: Modern Sans Light;
+}
+
+.activity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
