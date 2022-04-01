@@ -12,21 +12,19 @@
     font-size: 20px;
     padding: 5px;
     text-decoration: none;
-    color: #6956a1;
+    color: var(--regal_purple);
+    background-color: white;
 }
 
 .navbar-links:hover {
-    color: #BEB1D1;
+    color: var(--light_purple);
 }
 
 .navbar-brand {
-    /* font-size: 50px; */
-    color: #F9B9AD;
     font-family: Billion Dreams;
 }
 
 .brand.navbar-brand {
-    color: #F9B9AD;
     font-size: 50px;
 }
 
@@ -35,3 +33,9 @@
     right: 10px;
 }
 
+span.navbar-text {
+    font-size: 20px;
+    background-color: #beb1d1b2;
+    border-radius: 5px;
+    padding: 5px;
+}
