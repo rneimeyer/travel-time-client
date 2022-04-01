@@ -16,3 +16,11 @@ main {
 * {
   font-family: Modern Sans Light;
 }
+
+:root {
+  --deep_purple: #0f0a44;
+  --regal_purple:#6956a1;
+  --light_purple: #BEB1D1;
+  --coral: #F9B9AD;
+  --bold_orange: #F78359;
+}
