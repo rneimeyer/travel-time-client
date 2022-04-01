@@ -9,13 +9,13 @@ Form {
 
 .home {
     background-image: url("./../assets/beachplane.png");
-    height: 80vh;
+    min-height: 78vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     color: var(--deep_purple);
     border-radius: 5px;
-    padding-top: 10%;
+    padding-top: 7%;
 }
 
 button.btn.btn-primary {
