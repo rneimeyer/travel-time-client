@@ -1,4 +1,5 @@
 import "./App.css";
+import apiUrl from "./apiUrl"
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "./Header/Header";
@@ -9,7 +10,7 @@ import About from "./About/About";
 import Trip from "./Trip/Trip";
 
 function App() {
-  const urlBase = "http://localhost:4000";
+  const urlBase = apiUrl;
 
   const [traveller, setTraveller] = useState({name: "", email: ""});
   const [travellers, setTravellers] = useState([]);
