@@ -59,7 +59,7 @@ useEffect(() => {
         showCurrentTrip();
         console.log("fetch")
     }
-}, [show, refresh])
+}, [currentTripId, show, refresh])
 
   return (
     <div className="trip">
