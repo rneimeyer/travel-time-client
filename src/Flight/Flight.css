@@ -3,3 +3,11 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.flight-type {
+    color: var(--bold_orange)
+}
+
+.box p.card-text {
+    text-align: left;
+}
