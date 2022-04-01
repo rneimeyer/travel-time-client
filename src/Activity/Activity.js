@@ -118,7 +118,10 @@ const Activity = ({
 
   return (
     <div>
-      <Button onClick={handleShow}>Add an Activity</Button>
+      <div className="section-title">
+        <h3>Activities</h3>
+        <Button onClick={handleShow}>Add an Activity</Button>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add an Activity!</Modal.Title>
@@ -178,7 +181,7 @@ const Activity = ({
         </Modal.Body>
       </Modal>
       {activities[0] === undefined ? (
-        <div>Add an activity!</div>
+        <div>No activities yet!</div>
       ) : (
         <div className="activity">{yourActivities}</div>
       )}
