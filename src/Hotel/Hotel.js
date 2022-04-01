@@ -116,7 +116,10 @@ const Hotel = ({
 
   return (
     <div>
+        <div className="section-title">
+            <h3>Hotels</h3>
       <Button onClick={handleShow}>Add a Hotel</Button>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add a Hotel!</Modal.Title>
@@ -185,7 +188,7 @@ const Hotel = ({
         </Modal.Body>
       </Modal>
       {hotels[0] === undefined ? (
-        <div>Add a hotel!</div>
+        <div>No hotels yet!</div>
       ) : (
         <div className="hotel">{yourHotels}</div>
       )}
