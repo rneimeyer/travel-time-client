@@ -1,14 +1,42 @@
 .card-title.h5 {
     font-family: Billion Dreams;
     font-size: 40px;
+    color: var(--coral)
+}
+
+.card-title.h5::first-letter {
+    text-transform: uppercase;
+}
+
+.all-trips {
+    background-color: var(--light_purple);
+    padding: 5px;
+    width: 100%;
+    min-height: 78vh;
+}
+
+.no-traveller {
+    background-color: rgba(255, 255, 255, 0.397);
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .home-link {
     color: var(--bold_orange);
 }
 
+.home-link:hover {
+    color: var(--coral)
+}
+
+.all-trips h3 {
+    color: var(--deep_purple)
+}
+
 .plane-wing {
-    height: 60vh;
+    height: 40vh;
+    border-radius: 5px;
 }
 
 .btn-primary a {
@@ -21,4 +49,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 2%;
+}
+
+.individual-trip {
+    margin: 5px;
+}
+
+.individual-trip p.card-text {
+    margin-bottom: 0;
+    color: var(--deep_purple)
+}
+
+.all-trips .current-traveller h1 {
+    color: var(--coral)
+}
+
+.all-trips h1 {
+    color: var(--deep_purple)
 }
