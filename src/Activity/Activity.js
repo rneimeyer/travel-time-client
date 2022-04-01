@@ -2,9 +2,16 @@ import "./Activity.css";
 import { Button, Form, Modal, InputGroup, Card } from "react-bootstrap";
 import { useState } from "react";
 
-const Activity = ({ urlBase, activities, tripId, cleanDate, setRefresh }) => {
-
-    console.log(activities)
+const Activity = ({
+  urlBase,
+  activities,
+  tripId,
+  cleanDate,
+  setRefresh,
+  setActivitySum,
+  activitySum,
+}) => {
+  console.log(activities);
 
   const [show, setShow] = useState(false);
   const [newActivity, setNewActivity] = useState({
@@ -45,7 +52,10 @@ const Activity = ({ urlBase, activities, tripId, cleanDate, setRefresh }) => {
       .then(() => setRefresh(false));
   };
 
+  let total = 0;
+
   const yourActivities = activities.map((activity) => {
+    total += activity.price;
     return (
       <div key={activity._id} className="box">
         <Card>
@@ -65,6 +75,10 @@ const Activity = ({ urlBase, activities, tripId, cleanDate, setRefresh }) => {
       </div>
     );
   });
+
+  setActivitySum(total);
+
+  console.log(activitySum);
 
   const handleActivityChange = (event) => {
     event.persist();
