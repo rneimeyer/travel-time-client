@@ -4,7 +4,7 @@
 }
 
 .home-link {
-    color: #F78359;
+    color: var(--bold_orange);
 }
 
 .plane-wing {
