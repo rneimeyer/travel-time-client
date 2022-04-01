@@ -1,7 +1,3 @@
-h1 {
-    color: #F78359;
-}
-
 Form {
     text-align: left;
 }
@@ -17,15 +13,39 @@ Form {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    color: var(--deep_purple);
+    border-radius: 5px;
+    padding-top: 10%;
 }
 
 button.btn.btn-primary {
     color: white;
-    background-color: #F78359;
+    background-color: var(--bold_orange);
     border: none;
+    margin-top: 3px;
 }
 
 .button-link {
     color: white;
     text-decoration: none;
 }
+
+.home-text {
+    background-color: rgba(241, 235, 235, 0.466);
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 3%;
+}
+
+.welcome-message {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.home label.form-label {
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
