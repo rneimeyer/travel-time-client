@@ -13,8 +13,13 @@ const AllTrips = ({
   console.log(currentTraveller);
   const [trips, setTrips] = useState([]);
   const [show, setShow] = useState(false);
-  const [newTrip, setNewTrip] = useState({name: "", budget: Number, start_date: Date, end_date: Date});
-  const [refresh, setRefresh] = useState(false)
+  const [newTrip, setNewTrip] = useState({
+    name: "",
+    budget: Number,
+    start_date: Date,
+    end_date: Date,
+  });
+  const [refresh, setRefresh] = useState(false);
 
   const showTrips = () => {
     fetch(`${urlBase}/traveller/${travellerId}`)
@@ -26,18 +31,18 @@ const AllTrips = ({
     const newTripCopy = [...trips];
     newTripCopy.push(trip);
     let data = {
-        trips: newTripCopy,
+      trips: newTripCopy,
     };
     fetch(`${urlBase}/traveller/${travellerId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then((data) => console.log(data))
-}
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   const cleanDate = (date) => {
     const d = new Date(date);
@@ -67,29 +72,34 @@ const AllTrips = ({
   };
 
   const handleDelete = (event) => {
-      let id = event.target.id
-      fetch(`${urlBase}/trip/${id}`, {
-          method: "DELETE",
-      }).then((response) => response.json())
+    let id = event.target.id;
+    fetch(`${urlBase}/trip/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
       .then(() => setRefresh(true))
-      .then(() => setRefresh(false))
-  }
+      .then(() => setRefresh(false));
+  };
 
   const yourTrips = trips.map((trip) => {
     let startDate = cleanDate(trip.start_date);
     let endDate = cleanDate(trip.end_date);
     return (
-      <div key={trip._id}>
+      <div key={trip._id} className="individual-trip">
         <Card style={{ width: "15rem" }} className="mx-auto card">
           <Card.Body>
             <Card.Title>{trip.name}</Card.Title>
             <Card.Text>Budget: ${trip.budget}</Card.Text>
             <Card.Text>Start Date: {startDate}</Card.Text>
             <Card.Text>End Date: {endDate}</Card.Text>
-            
-              <Link to={"/all-trips/" + trip.name}><Button onClick={getTrip} id={trip._id}>View Trip Details</Button></Link>
-            
-            <Button onClick={handleDelete} id={trip._id}>Delete Trip</Button>
+            <Link to={"/all-trips/" + trip.name}>
+              <Button onClick={getTrip} id={trip._id}>
+                View Trip Details
+              </Button>
+            </Link>
+            <Button onClick={handleDelete} id={trip._id}>
+              Delete Trip
+            </Button>
           </Card.Body>
         </Card>
       </div>
@@ -107,43 +117,52 @@ const AllTrips = ({
   }, [currentTraveller, show, refresh]);
 
   const handleTripChange = (event) => {
-      event.persist();
-      setNewTrip((prevNewTrip) => {
-          const editedNewTrip = {
-              ...prevNewTrip,
-              [event.target.name]: event.target.value,
-          }
-          return editedNewTrip;
-      })
+    event.persist();
+    setNewTrip((prevNewTrip) => {
+      const editedNewTrip = {
+        ...prevNewTrip,
+        [event.target.name]: event.target.value,
+      };
+      return editedNewTrip;
+    });
   };
 
   const addTrip = (event) => {
-      event.preventDefault();
-      fetch(`${urlBase}/trip/`, {
-          headers: {
-              "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(newTrip),
-      })
+    event.preventDefault();
+    fetch(`${urlBase}/trip/`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(newTrip),
+    })
       .then((response) => response.json())
       .then((data) => putNewTrip(data.trip))
-      .then(()=>setNewTrip({name: "", budget: Number, start_date: Date, end_date: Date}))
-      .then(()=>handleClose())
+      .then(() =>
+        setNewTrip({
+          name: "",
+          budget: Number,
+          start_date: Date,
+          end_date: Date,
+        })
+      )
+      .then(() => handleClose());
   };
 
   return (
     <div className="all-trips">
       {currentTraveller === "" ? (
         <div>
+          <div className="no-traveller">
             <h1>Your Trips</h1>
-          <h3>
-            Please{" "}
-            <Link className="home-link" to="/">
-              sign in
-            </Link>{" "}
-            to view and update your trips!
-          </h3>
+            <h3>
+              Please{" "}
+              <Link className="home-link" to="/">
+                sign in
+              </Link>{" "}
+              to view and update your trips!
+            </h3>
+          </div>
           <img
             className="plane-wing"
             src={plane_wing}
@@ -152,9 +171,7 @@ const AllTrips = ({
         </div>
       ) : (
         <div>
-          <h1 className="current-traveller">
-            {currentTraveller.name}'s Trips
-          </h1>
+          <h1 className="current-traveller">{currentTraveller.name}'s Trips</h1>
           <Button onClick={handleShow}>Add a Trip</Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
