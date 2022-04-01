@@ -1,16 +1,15 @@
 .footer {
     bottom: 0;
-    position: absolute;
     width: 100%;
-    color: #0f0a44;
+    color: var(--deep_purple);
 }
 
 .social-icon {
     padding: 0px 10px;
     font-size: 25px;
-    color: #6956a1;
+    color: var(--regal_purple);
 }
 
 .social-icon:hover {
-    color: #BEB1D1;
+    color: var(--light_purple);
 }
