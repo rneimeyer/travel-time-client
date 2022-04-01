@@ -1,6 +1,7 @@
 import "./Trip.css";
 import Flight from "./../Flight/Flight";
 import Hotel from "./../Hotel/Hotel";
+import Activity from "./../Activity/Activity";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
@@ -124,6 +125,8 @@ useEffect(() => {
           <Flight flights={currentTrip.flights} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} setRefresh={setRefresh} />
           <h3>Hotels</h3>
           <Hotel hotels={currentTrip.hotels} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} setRefresh={setRefresh} />
+          <h3>Activities</h3>
+          <Activity activities={currentTrip.activities} urlBase={urlBase} tripId={currentTrip._id} cleanDate={cleanDate} setRefresh={setRefresh} />
         </div>
       )}
     </div>
