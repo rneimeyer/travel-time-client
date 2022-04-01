@@ -65,7 +65,7 @@ const Home = ({
       } else {
           return (<div>
               <p>Welcome back, {currentTraveller.name}!</p>
-              <Button><Link className="button-link" to="/all-trips">Go to Your Trips!</Link></Button>
+              <Link className="button-link" to="/all-trips"><Button>Go to Your Trips!</Button></Link>
               </div>)
       }
   }
