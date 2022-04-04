@@ -45,8 +45,8 @@ const Trip = ({ urlBase, currentTripId }) => {
       "October",
       "November",
       "December",
-    ][d.getMonth()];
-    let newDate = month + " " + d.getDate() + ", " + d.getFullYear();
+    ][d.getUTCMonth()];
+    let newDate = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
     return newDate;
   };
 
