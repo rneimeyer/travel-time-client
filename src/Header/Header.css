@@ -32,12 +32,14 @@
     color: var(--light_purple);
 }
 
-.navbar-brand {
+.navbar-brand a {
     font-family: Billion Dreams;
 }
 
-.brand.navbar-brand {
+.brand.navbar-brand a {
     font-size: 40px;
+    text-decoration: none;
+    color: var(--coral)
 }
 
 .me-auto {

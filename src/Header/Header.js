@@ -7,7 +7,7 @@ const Header = ({ currentTraveller }) => {
     <div className="header">
       <Navbar collapseOnSelect bg="white" expand="md" fixed="top">
         <Container>
-          <Navbar.Brand className="brand" style={{color: '#F9B9AD'}}>Travel Time</Navbar.Brand>
+          <Navbar.Brand className="brand"><Link to="/">Travel Time</Link></Navbar.Brand>
           <Navbar.Text style={{color: '#6956a1'}}>{currentTraveller.name ? ("Hey there, "+currentTraveller.name)+"!" : ("Let's go!")}</Navbar.Text>
           <div className="drop-down">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
