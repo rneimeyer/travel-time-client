@@ -51,6 +51,19 @@ const Hotel = ({
       .then(() => setRefresh(false));
   };
 
+  for (let i = 0; i < hotels.length; i++) {
+    hotels.sort((a, b) => {
+      console.log(a.check_in, b.check_in);
+      if (a.check_in < b.check_in) {
+        return -1;
+      }
+      if (a.check_in > b.check_in) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
   let total = 0;
 
   const yourHotels = hotels.map((hotel) => {
@@ -116,9 +129,9 @@ const Hotel = ({
 
   return (
     <div>
-        <div className="section-title">
-            <h3>Hotels</h3>
-      <Button onClick={handleShow}>Add a Hotel</Button>
+      <div className="section-title">
+        <h3>Hotels</h3>
+        <Button onClick={handleShow}>Add a Hotel</Button>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -52,6 +52,21 @@ const Activity = ({
       .then(() => setRefresh(false));
   };
 
+  for (let i=0; i<activities.length; i++) {
+      activities.sort((a,b) => {
+        console.log(a.date, b.date)
+          if (a.date < b.date) {
+              return -1
+          }
+          if (a.date > b.date) {
+              return 1
+          }
+          return 0
+      })
+  }
+
+  console.log(activities)
+
   let total = 0;
 
   const yourActivities = activities.map((activity) => {

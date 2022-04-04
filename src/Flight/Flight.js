@@ -56,6 +56,27 @@ const Flight = ({
       .then(() => setRefresh(false));
   };
 
+  for (let i = 0; i < flights.length; i++) {
+    flights.sort((a, b) => {
+      console.log(a.date, b.date);
+      if (a.date < b.date) {
+        return -1;
+      }
+      if (a.date > b.date) {
+        return 1;
+      }
+      if (a.date === b.date) {
+          if (a.departure_time < b.departure_time) {
+              return -1
+          }
+          if (a.departure_time > b.departure_time) {
+              return 1
+          }
+      }
+      return 0;
+    });
+  }
+
   let total = 0;
 
   const yourFlights = flights.map((flight) => {
