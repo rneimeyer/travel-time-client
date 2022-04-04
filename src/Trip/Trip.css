@@ -1,6 +1,6 @@
 .trip {
     background-color: var(--light_purple);
-    padding: 5px;
+    padding-top: 15px;
     width: 100%;
     min-height: 78vh;
     color: var(--deep_purple);
@@ -28,7 +28,7 @@
 .budget-status {
     color: var(--regal_purple);
     background-color: #f9b8ad8f;
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     border-radius: 5px;
 }
@@ -40,7 +40,7 @@
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 5px;
-    width: 60%;
+    width: 85%;
     align-items: center;
     align-content: center;
     margin: 0 auto;
@@ -49,4 +49,17 @@
 
 .trip-summary h3 {
     margin-bottom: 0;
+}
+
+@media only screen and (min-width: 786px) {
+    .trip-summary {
+        width: 60%;
+    }
+    .budget-status {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    
 }
