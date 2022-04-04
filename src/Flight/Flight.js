@@ -92,10 +92,10 @@ const Flight = ({
             <Card.Text>Flight Number: {flight.flight_number}</Card.Text>
             <Card.Text>{cleanDate(flight.date)}</Card.Text>
             <Card.Text>
-              Departure: {flight.starting_airport}, {flight.departure_time}
+              Departure: <span className="airport">{flight.starting_airport}</span>, {flight.departure_time}
             </Card.Text>
             <Card.Text>
-              Arrival: {flight.ending_airport}, {flight.arrival_time}
+              Arrival: <span className="airport">{flight.ending_airport}</span>, {flight.arrival_time}
             </Card.Text>
             <Card.Text>Price: ${flight.price}</Card.Text>
             <Button onClick={handleDelete} id={flight._id}>
