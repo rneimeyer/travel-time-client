@@ -5,7 +5,7 @@ import Activity from "./../Activity/Activity";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-const Trip = ({ urlBase, currentTripId }) => {
+const Trip = ({ urlBase, cleanDate, currentTripId }) => {
   console.log(currentTripId);
 
   const [show, setShow] = useState(false);
@@ -29,26 +29,6 @@ const Trip = ({ urlBase, currentTripId }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const cleanDate = (date) => {
-    const d = new Date(date);
-    let month = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ][d.getUTCMonth()];
-    let newDate = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
-    return newDate;
-  };
 
   const handleTripUpdateChange = (event) => {
     event.persist();

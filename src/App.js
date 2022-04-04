@@ -24,6 +24,26 @@ function App() {
     .then((data) => setTravellers(data.traveller));
   }, []);
 
+  const cleanDate = (date) => {
+    const d = new Date(date);
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ][d.getUTCMonth()];
+    let newDate = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
+    return newDate;
+  };
+
   return (
     <div className="App">
       <Header currentTraveller={currentTraveller} />
@@ -31,9 +51,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home urlBase={urlBase} traveller={traveller} setTraveller={setTraveller} travellers={travellers} setTravellers={setTravellers} currentTraveller={currentTraveller} setCurrentTraveller={setCurrentTraveller} travellerId={travellerId} setTravellerId={setTravellerId}/>} />
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} setCurrentTripId={setCurrentTripId} />} />
+          <Route path="/all-trips" element={<AllTrips urlBase={urlBase} currentTraveller={currentTraveller} travellerId={travellerId} setCurrentTripId={setCurrentTripId} cleanDate={cleanDate} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/all-trips/:trip" element={<Trip urlBase={urlBase} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} />} />
+          <Route path="/all-trips/:trip" element={<Trip urlBase={urlBase} currentTripId={currentTripId} setCurrentTripId={setCurrentTripId} cleanDate={cleanDate} />} />
         </Routes>
       </main>
       <Footer />

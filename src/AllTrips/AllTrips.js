@@ -6,6 +6,7 @@ import plane_wing from "./../assets/plane_wing.png";
 
 const AllTrips = ({
   urlBase,
+  cleanDate,
   currentTraveller,
   travellerId,
   setCurrentTripId,
@@ -42,26 +43,6 @@ const AllTrips = ({
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
-  };
-
-  const cleanDate = (date) => {
-    const d = new Date(date);
-    let month = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ][d.getUTCMonth()];
-    let newDate = month + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
-    return newDate;
   };
 
   const getTrip = (event) => {
