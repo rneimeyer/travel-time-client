@@ -37,7 +37,8 @@ const Hotel = ({
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json());
+      .then((response) => response.json())
+      .then(() => setRefresh(!refresh));
   };
 
   const handleDelete = (event) => {
@@ -118,7 +119,6 @@ const Hotel = ({
           ammenities: "",
         })
       )
-      .then(() => setRefresh(!refresh))
       .then(() => handleClose());
   };
 

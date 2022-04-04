@@ -145,7 +145,6 @@ const Flight = ({
           price: Number,
         })
       )
-      .then(() => setRefresh(!refresh))
       .then(() => handleClose());
   };
 

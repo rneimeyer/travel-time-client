@@ -11,7 +11,6 @@ const Activity = ({
   setRefresh,
   setActivitySum,
 }) => {
-
   const [show, setShow] = useState(false);
   const [newActivity, setNewActivity] = useState({
     activity: "",
@@ -37,7 +36,8 @@ const Activity = ({
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json());
+      .then((response) => response.json())
+      .then(() => setRefresh(!refresh));
   };
 
   const handleDelete = (event) => {
@@ -118,7 +118,6 @@ const Activity = ({
           notes: "",
         })
       )
-      .then(() => setRefresh(!refresh))
       .then(() => handleClose());
   };
 
