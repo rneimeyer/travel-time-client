@@ -7,8 +7,6 @@ import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 const Trip = ({ urlBase, cleanDate, currentTripId }) => {
-  console.log(currentTripId);
-
   const [show, setShow] = useState(false);
   const [tripUpdate, setTripUpdate] = useState({
     name: "",
@@ -68,7 +66,7 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
   useEffect(() => {
     if (currentTripId !== "") {
       showCurrentTrip();
-      console.log("fetch");
+      console.log("trip fetch");
     }
   }, [currentTripId, refresh]);
 
@@ -160,9 +158,15 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
             <h3>Budget: ${currentTrip.budget}</h3>
             <h3>Current Trip Total: ${tripSum}</h3>
             <h4 className="budget-status">
-              {currentTrip.budget > tripSum
-                ? "You're under budget! Plan some more activities!"
-                : "You're over budget... time to rethink some plans."}
+              {currentTrip.budget > tripSum ? (
+                "You're under budget! Plan some more activities!"
+              ) : (
+                <div>
+                  {currentTrip.budget < tripSum
+                    ? "You're over budget... time to rethink some plans."
+                    : "You're right at budget target! Good job!"}
+                </div>
+              )}
             </h4>
           </div>
           <div className="trip-details">
@@ -174,7 +178,6 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               refresh={refresh}
               setRefresh={setRefresh}
               setFlightSum={setFlightSum}
-              flightSum={flightSum}
             />
             <Hotel
               hotels={currentTrip.hotels}
@@ -184,7 +187,6 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               refresh={refresh}
               setRefresh={setRefresh}
               setHotelSum={setHotelSum}
-              hotelSum={hotelSum}
             />
             <Activity
               activities={currentTrip.activities}
@@ -194,7 +196,6 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               refresh={refresh}
               setRefresh={setRefresh}
               setActivitySum={setActivitySum}
-              activitySum={activitySum}
             />
           </div>
         </div>

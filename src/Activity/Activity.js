@@ -10,9 +10,7 @@ const Activity = ({
   refresh,
   setRefresh,
   setActivitySum,
-  activitySum,
 }) => {
-  console.log(activities);
 
   const [show, setShow] = useState(false);
   const [newActivity, setNewActivity] = useState({
@@ -39,8 +37,7 @@ const Activity = ({
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((response) => response.json());
   };
 
   const handleDelete = (event) => {
@@ -54,7 +51,6 @@ const Activity = ({
 
   for (let i = 0; i < activities.length; i++) {
     activities.sort((a, b) => {
-      console.log(a.date, b.date);
       if (a.date < b.date) {
         return -1;
       }
@@ -64,8 +60,6 @@ const Activity = ({
       return 0;
     });
   }
-
-  console.log(activities);
 
   let total = 0;
 
@@ -92,8 +86,6 @@ const Activity = ({
   });
 
   setActivitySum(total);
-
-  console.log(activitySum);
 
   const handleActivityChange = (event) => {
     event.persist();

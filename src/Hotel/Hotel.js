@@ -9,7 +9,6 @@ const Hotel = ({
   cleanDate,
   refresh,
   setRefresh,
-  hotelSum,
   setHotelSum,
 }) => {
   const [show, setShow] = useState(false);
@@ -38,8 +37,7 @@ const Hotel = ({
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((response) => response.json());
   };
 
   const handleDelete = (event) => {
@@ -53,7 +51,6 @@ const Hotel = ({
 
   for (let i = 0; i < hotels.length; i++) {
     hotels.sort((a, b) => {
-      console.log(a.check_in, b.check_in);
       if (a.check_in < b.check_in) {
         return -1;
       }
@@ -88,7 +85,6 @@ const Hotel = ({
   });
 
   setHotelSum(total);
-  console.log(hotelSum);
 
   const handleHotelChange = (event) => {
     event.persist();

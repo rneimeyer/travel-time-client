@@ -9,11 +9,8 @@ const Flight = ({
   cleanDate,
   refresh,
   setRefresh,
-  flightSum,
   setFlightSum,
 }) => {
-  console.log(flights);
-
   const [show, setShow] = useState(false);
   const [newFlight, setNewFlight] = useState({
     flight_type: "",
@@ -44,7 +41,6 @@ const Flight = ({
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
       .then(() => setRefresh(!refresh));
   };
 
@@ -59,7 +55,6 @@ const Flight = ({
 
   for (let i = 0; i < flights.length; i++) {
     flights.sort((a, b) => {
-      console.log(a.date, b.date);
       if (a.date < b.date) {
         return -1;
       }
@@ -114,7 +109,6 @@ const Flight = ({
   });
 
   setFlightSum(total);
-  console.log(flightSum);
 
   const handleFlightChange = (event) => {
     event.persist();

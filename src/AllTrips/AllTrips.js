@@ -11,7 +11,6 @@ const AllTrips = ({
   travellerId,
   setCurrentTripId,
 }) => {
-  console.log(currentTraveller);
   const [trips, setTrips] = useState([]);
   const [show, setShow] = useState(false);
   const [newTrip, setNewTrip] = useState({
@@ -41,8 +40,7 @@ const AllTrips = ({
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((response) => response.json());
   };
 
   const getTrip = (event) => {
@@ -63,7 +61,6 @@ const AllTrips = ({
 
   for (let i = 0; i < trips.length; i++) {
     trips.sort((a, b) => {
-      console.log(a.start_date, b.start_date);
       if (a.start_date < b.start_date) {
         return -1;
       }
