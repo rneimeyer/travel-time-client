@@ -138,7 +138,6 @@ const Flight = ({
     })
       .then((response) => response.json())
       .then((data) => putNewFlight(data.flight))
-      .then(() => setRefresh(!refresh))
       .then(() =>
         setNewFlight({
           flight_type: "",
@@ -152,7 +151,7 @@ const Flight = ({
           price: Number,
         })
       )
-    //   .then(() => setRefresh(!refresh))
+      .then(() => setRefresh(!refresh))
       .then(() => handleClose());
   };
 
