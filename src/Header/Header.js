@@ -9,6 +9,7 @@ const Header = ({ currentTraveller }) => {
         <Container>
           <Navbar.Brand className="brand" style={{color: '#F9B9AD'}}>Travel Time</Navbar.Brand>
           <Navbar.Text style={{color: '#6956a1'}}>{currentTraveller.name ? ("Hey there, "+currentTraveller.name)+"!" : ("Let's go!")}</Navbar.Text>
+          <div className="drop-down">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -23,6 +24,7 @@ const Header = ({ currentTraveller }) => {
               </Link>
             </Nav>
           </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
     </div>
