@@ -44,7 +44,8 @@ const Flight = ({
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => console.log(data))
+      .then(() => setRefresh(!refresh));
   };
 
   const handleDelete = (event) => {
@@ -137,6 +138,7 @@ const Flight = ({
     })
       .then((response) => response.json())
       .then((data) => putNewFlight(data.flight))
+      .then(() => setRefresh(!refresh))
       .then(() =>
         setNewFlight({
           flight_type: "",
@@ -150,7 +152,7 @@ const Flight = ({
           price: Number,
         })
       )
-      .then(() => setRefresh(!refresh))
+    //   .then(() => setRefresh(!refresh))
       .then(() => handleClose());
   };
 
