@@ -60,6 +60,15 @@ span.navbar-text {
     span.navbar-text {
         font-size: 20px;
     }
+
+    .navbar div.container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
