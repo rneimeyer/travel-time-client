@@ -8,12 +8,24 @@
     width: 100%;
 }
 
+.navbar div.container {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
 .navbar-links {
     font-size: 20px;
     padding: 5px;
     text-decoration: none;
     color: var(--regal_purple);
     background-color: white;
+    width: 125%
+}
+
+.drop-down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .navbar-links:hover {
@@ -25,7 +37,7 @@
 }
 
 .brand.navbar-brand {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .me-auto {
@@ -34,8 +46,24 @@
 }
 
 span.navbar-text {
-    font-size: 20px;
+    font-size: 15px;
     background-color: #beb1d1b2;
     border-radius: 5px;
     padding: 5px;
+}
+
+@media only screen and (min-width: 786px) {
+    .brand.navbar-brand {
+        font-size: 50px;
+    }
+
+    span.navbar-text {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .brand.navbar-brand {
+        font-size: 50px;
+    }
 }
