@@ -137,17 +137,19 @@ const AllTrips = ({
       body: JSON.stringify(newTrip),
     })
       .then((response) => response.json())
-      .then((data) => putNewTrip(data.trip))
-      .then(() =>
-        setNewTrip({
-          name: "",
-          budget: Number,
-          start_date: Date,
-          end_date: Date,
-        })
-      )
-      .then(() => setRefresh(!refresh))
-      .then(() => handleClose());
+      .then((data) =>
+        putNewTrip(data.trip)
+          .then(() =>
+            setNewTrip({
+              name: "",
+              budget: Number,
+              start_date: Date,
+              end_date: Date,
+            })
+          )
+          .then(() => setRefresh(!refresh))
+          .then(() => handleClose())
+      );
   };
 
   return (
