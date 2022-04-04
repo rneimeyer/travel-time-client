@@ -47,8 +47,9 @@ const Activity = ({
     let id = event.target.id;
     fetch(`${urlBase}/activity/${id}`, {
       method: "DELETE",
-    }).then((response) => response.json());
-    setRefresh(!refresh);
+    })
+      .then((response) => response.json())
+      .then(() => setRefresh(!refresh));
   };
 
   for (let i = 0; i < activities.length; i++) {

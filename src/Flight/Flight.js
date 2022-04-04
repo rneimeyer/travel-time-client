@@ -51,8 +51,9 @@ const Flight = ({
     let id = event.target.id;
     fetch(`${urlBase}/flight/${id}`, {
       method: "DELETE",
-    }).then((response) => response.json());
-    setRefresh(!refresh);
+    })
+      .then((response) => response.json())
+      .then(() => setRefresh(!refresh));
   };
 
   for (let i = 0; i < flights.length; i++) {
