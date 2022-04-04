@@ -3,7 +3,7 @@ Form {
 }
 
 .form-container {
-   width: 40%;
+   width: 70%;
    margin: 0 auto;
 }
 
@@ -32,7 +32,7 @@ button.btn.btn-primary {
 
 .home-text {
     background-color: rgba(241, 235, 235, 0.466);
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     border-radius: 5px;
     padding: 3%;
@@ -49,3 +49,15 @@ button.btn.btn-primary {
     margin-bottom: 3px;
 }
 
+@media only screen and (min-width: 786px) {
+    .home-text {
+        width: 50%;
+    }
+    .form-container {
+        width: 40%;
+     }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+}
