@@ -18,8 +18,8 @@
 .no-traveller {
     background-color: rgba(255, 255, 255, 0.397);
     border-radius: 5px;
-    width: 60%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 10px auto;
 }
 
 .home-link {
@@ -35,7 +35,7 @@
 }
 
 .plane-wing {
-    height: 40vh;
+    width: 90%;
     border-radius: 5px;
 }
 
@@ -67,4 +67,18 @@
 
 .all-trips h1 {
     color: var(--deep_purple)
+}
+
+@media only screen and (min-width: 786px) {
+    .plane-wing {
+        height: 40vh;
+    }
+    .no-traveller {
+        width: 60%;
+    }
+    
+}
+
+@media only screen and (min-width: 1024px) {
+    
 }
