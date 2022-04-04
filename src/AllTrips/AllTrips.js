@@ -44,7 +44,7 @@ const AllTrips = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => response.json());
+    }).then((response) => console.log("put new trip", response.json()));
   };
 
   const getTrip = (event) => {
