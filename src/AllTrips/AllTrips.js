@@ -44,7 +44,9 @@ const AllTrips = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => console.log("put new trip", response.json()));
+    })
+      .then((response) => console.log("put new trip", response.json()))
+      .then(() => setRefresh(!refresh));
   };
 
   const getTrip = (event) => {
@@ -137,19 +139,16 @@ const AllTrips = ({
       body: JSON.stringify(newTrip),
     })
       .then((response) => response.json())
-      .then((data) =>
-        putNewTrip(data.trip)
-          .then(() =>
-            setNewTrip({
-              name: "",
-              budget: Number,
-              start_date: Date,
-              end_date: Date,
-            })
-          )
-          .then(() => setRefresh(!refresh))
-          .then(() => handleClose())
-      );
+      .then((data) => putNewTrip(data.trip))
+      .then(() =>
+        setNewTrip({
+          name: "",
+          budget: Number,
+          start_date: Date,
+          end_date: Date,
+        })
+      )
+      .then(() => handleClose());
   };
 
   return (
