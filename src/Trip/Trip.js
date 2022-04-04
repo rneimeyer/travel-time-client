@@ -60,7 +60,9 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
           end_date: Date,
         })
       )
-      .then(() => handleClose());
+      .then(() => handleClose())
+      .then(() => setRefresh(true))
+      .then(() => setRefresh(false));
   };
 
   useEffect(() => {
@@ -68,7 +70,7 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
       showCurrentTrip();
       console.log("fetch");
     }
-  }, [currentTripId, show, refresh]);
+  }, [currentTripId, refresh]);
 
   let tripSum = flightSum + hotelSum + activitySum;
 

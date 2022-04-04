@@ -95,7 +95,7 @@ const AllTrips = ({
       showTrips();
       console.log("fetch");
     }
-  }, [currentTraveller, show, refresh]);
+  }, [currentTraveller, refresh]);
 
   const handleTripChange = (event) => {
     event.persist();
@@ -127,7 +127,9 @@ const AllTrips = ({
           end_date: Date,
         })
       )
-      .then(() => handleClose());
+      .then(() => handleClose())
+      .then(() => setRefresh(true))
+      .then(() => setRefresh(false));
   };
 
   return (
