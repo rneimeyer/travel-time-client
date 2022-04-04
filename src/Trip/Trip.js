@@ -61,9 +61,8 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
           end_date: Date,
         })
       )
-      .then(() => handleClose())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+      .then(() => setRefresh(!refresh))
+      .then(() => handleClose());
   };
 
   useEffect(() => {
@@ -95,7 +94,9 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
         </div>
       ) : (
         <div>
-          <h6 className="return"><Link to="/all-trips">⬅ All Trips</Link></h6>
+          <h6 className="return">
+            <Link to="/all-trips">⬅ All Trips</Link>
+          </h6>
           <div className="trip-summary">
             <h1 className="trip-name">{currentTrip.name}</h1>
             <h3>
@@ -170,6 +171,7 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               urlBase={urlBase}
               tripId={currentTrip._id}
               cleanDate={cleanDate}
+              refresh={refresh}
               setRefresh={setRefresh}
               setFlightSum={setFlightSum}
               flightSum={flightSum}
@@ -179,6 +181,7 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               urlBase={urlBase}
               tripId={currentTrip._id}
               cleanDate={cleanDate}
+              refresh={refresh}
               setRefresh={setRefresh}
               setHotelSum={setHotelSum}
               hotelSum={hotelSum}
@@ -188,6 +191,7 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
               urlBase={urlBase}
               tripId={currentTrip._id}
               cleanDate={cleanDate}
+              refresh={refresh}
               setRefresh={setRefresh}
               setActivitySum={setActivitySum}
               activitySum={activitySum}

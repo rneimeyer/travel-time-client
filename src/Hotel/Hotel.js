@@ -7,6 +7,7 @@ const Hotel = ({
   hotels,
   tripId,
   cleanDate,
+  refresh,
   setRefresh,
   hotelSum,
   setHotelSum,
@@ -45,10 +46,8 @@ const Hotel = ({
     let id = event.target.id;
     fetch(`${urlBase}/hotel/${id}`, {
       method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+    }).then((response) => response.json());
+    setRefresh(!refresh);
   };
 
   for (let i = 0; i < hotels.length; i++) {
@@ -122,9 +121,8 @@ const Hotel = ({
           ammenities: "",
         })
       )
-      .then(() => handleClose())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+      .then(() => setRefresh(!refresh))
+      .then(() => handleClose());
   };
 
   return (

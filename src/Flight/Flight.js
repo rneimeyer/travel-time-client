@@ -7,6 +7,7 @@ const Flight = ({
   flights,
   tripId,
   cleanDate,
+  refresh,
   setRefresh,
   flightSum,
   setFlightSum,
@@ -50,10 +51,8 @@ const Flight = ({
     let id = event.target.id;
     fetch(`${urlBase}/flight/${id}`, {
       method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+    }).then((response) => response.json());
+    setRefresh(!refresh);
   };
 
   for (let i = 0; i < flights.length; i++) {
@@ -66,12 +65,12 @@ const Flight = ({
         return 1;
       }
       if (a.date === b.date) {
-          if (a.departure_time < b.departure_time) {
-              return -1
-          }
-          if (a.departure_time > b.departure_time) {
-              return 1
-          }
+        if (a.departure_time < b.departure_time) {
+          return -1;
+        }
+        if (a.departure_time > b.departure_time) {
+          return 1;
+        }
       }
       return 0;
     });
@@ -88,14 +87,19 @@ const Flight = ({
             <Card.Title className="hotel-flight-name">
               {flight.airline}
             </Card.Title>
-            <Card.Text style={{background: "#f9b8ad8f"}}>{flight.flight_type}</Card.Text>
+            <Card.Text style={{ background: "#f9b8ad8f" }}>
+              {flight.flight_type}
+            </Card.Text>
             <Card.Text>Flight Number: {flight.flight_number}</Card.Text>
             <Card.Text>{cleanDate(flight.date)}</Card.Text>
             <Card.Text>
-              Departure: <span className="airport">{flight.starting_airport}</span>, {flight.departure_time}
+              Departure:{" "}
+              <span className="airport">{flight.starting_airport}</span>,{" "}
+              {flight.departure_time}
             </Card.Text>
             <Card.Text>
-              Arrival: <span className="airport">{flight.ending_airport}</span>, {flight.arrival_time}
+              Arrival: <span className="airport">{flight.ending_airport}</span>,{" "}
+              {flight.arrival_time}
             </Card.Text>
             <Card.Text>Price: ${flight.price}</Card.Text>
             <Button onClick={handleDelete} id={flight._id}>
@@ -145,16 +149,15 @@ const Flight = ({
           price: Number,
         })
       )
-      .then(() => handleClose())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+      .then(() => setRefresh(!refresh))
+      .then(() => handleClose());
   };
 
   return (
     <div>
-        <div className="section-title">
-            <h3>Flights</h3>
-      <Button onClick={handleShow}>Add a Flight</Button>
+      <div className="section-title">
+        <h3>Flights</h3>
+        <Button onClick={handleShow}>Add a Flight</Button>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -261,7 +264,7 @@ const Flight = ({
       {flights[0] === undefined ? (
         <div>No flights yet!</div>
       ) : (
-          <div className="flight">{yourFlights}</div>
+        <div className="flight">{yourFlights}</div>
       )}
     </div>
   );

@@ -7,6 +7,7 @@ const Activity = ({
   activities,
   tripId,
   cleanDate,
+  refresh,
   setRefresh,
   setActivitySum,
   activitySum,
@@ -46,26 +47,24 @@ const Activity = ({
     let id = event.target.id;
     fetch(`${urlBase}/activity/${id}`, {
       method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+    }).then((response) => response.json());
+    setRefresh(!refresh);
   };
 
-  for (let i=0; i<activities.length; i++) {
-      activities.sort((a,b) => {
-        console.log(a.date, b.date)
-          if (a.date < b.date) {
-              return -1
-          }
-          if (a.date > b.date) {
-              return 1
-          }
-          return 0
-      })
+  for (let i = 0; i < activities.length; i++) {
+    activities.sort((a, b) => {
+      console.log(a.date, b.date);
+      if (a.date < b.date) {
+        return -1;
+      }
+      if (a.date > b.date) {
+        return 1;
+      }
+      return 0;
+    });
   }
 
-  console.log(activities)
+  console.log(activities);
 
   let total = 0;
 
@@ -126,9 +125,8 @@ const Activity = ({
           notes: "",
         })
       )
-      .then(() => handleClose())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+      .then(() => setRefresh(!refresh))
+      .then(() => handleClose());
   };
 
   return (

@@ -56,10 +56,8 @@ const AllTrips = ({
     let id = event.target.id;
     fetch(`${urlBase}/trip/${id}`, {
       method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+    }).then((response) => response.json());
+    setRefresh(!refresh);
   };
 
   const yourTrips = trips.map((trip) => {
@@ -127,9 +125,8 @@ const AllTrips = ({
           end_date: Date,
         })
       )
-      .then(() => handleClose())
-      .then(() => setRefresh(true))
-      .then(() => setRefresh(false));
+      .then(() => setRefresh(!refresh))
+      .then(() => handleClose());
   };
 
   return (
