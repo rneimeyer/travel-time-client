@@ -1,6 +1,7 @@
 .flight {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
@@ -8,6 +9,22 @@
     color: var(--bold_orange)
 }
 
+.card-text::first-letter {
+    text-transform: uppercase;
+}
+
 .box p.card-text {
     text-align: left;
+}
+
+span.airport {
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 786px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+    
 }
