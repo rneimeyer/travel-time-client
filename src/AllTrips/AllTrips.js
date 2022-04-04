@@ -25,7 +25,10 @@ const AllTrips = ({
     console.log("show trips");
     fetch(`${urlBase}/traveller/${travellerId}`)
       .then((response) => response.json())
-      .then((data) => setTrips(data.traveller.trips));
+      .then((data) => {
+        console.log(data);
+        setTrips(data.traveller.trips);
+      });
   };
 
   const putNewTrip = (trip) => {
