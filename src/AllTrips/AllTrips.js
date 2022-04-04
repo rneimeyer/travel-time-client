@@ -22,12 +22,14 @@ const AllTrips = ({
   const [refresh, setRefresh] = useState(false);
 
   const showTrips = () => {
+    console.log("show trips");
     fetch(`${urlBase}/traveller/${travellerId}`)
       .then((response) => response.json())
       .then((data) => setTrips(data.traveller.trips));
   };
 
   const putNewTrip = (trip) => {
+    console.log("putnewtrip");
     const newTripCopy = [...trips];
     newTripCopy.push(trip);
     let data = {
@@ -39,11 +41,11 @@ const AllTrips = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-      .then((response) => response.json());
+    }).then((response) => response.json());
   };
 
   const getTrip = (event) => {
+    console.log("getTrip");
     let id = event.target.id;
     fetch(`${urlBase}/trip/${id}`)
       .then((response) => response.json())
@@ -51,6 +53,7 @@ const AllTrips = ({
   };
 
   const handleDelete = (event) => {
+    console.log("handle delete");
     let id = event.target.id;
     fetch(`${urlBase}/trip/${id}`, {
       method: "DELETE",
@@ -72,6 +75,7 @@ const AllTrips = ({
   }
 
   const yourTrips = trips.map((trip) => {
+    console.log("your trip map");
     let startDate = cleanDate(trip.start_date);
     let endDate = cleanDate(trip.end_date);
     return (
@@ -100,6 +104,7 @@ const AllTrips = ({
   const handleShow = () => setShow(true);
 
   useEffect(() => {
+    console.log("use effect");
     if (currentTraveller !== "") {
       showTrips();
       console.log("fetch");
@@ -108,6 +113,7 @@ const AllTrips = ({
 
   const handleTripChange = (event) => {
     event.persist();
+    console.log("trip change");
     setNewTrip((prevNewTrip) => {
       const editedNewTrip = {
         ...prevNewTrip,
@@ -119,6 +125,7 @@ const AllTrips = ({
 
   const addTrip = (event) => {
     event.preventDefault();
+    console.log("add trip");
     fetch(`${urlBase}/trip/`, {
       headers: {
         "Content-Type": "application/json",
