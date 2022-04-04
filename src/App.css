@@ -3,7 +3,7 @@
 }
 
 main {
-  margin-top: 100px;
+  margin-top: 80px;
   min-height: 70vh;
 }
 
@@ -23,4 +23,15 @@ main {
   --light_purple: #BEB1D1;
   --coral: #F9B9AD;
   --bold_orange: #F78359;
+}
+
+@media only screen and (min-width: 786px) {
+  main {
+    margin-top: 100px;
+    min-height: 70vh;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+    
 }
