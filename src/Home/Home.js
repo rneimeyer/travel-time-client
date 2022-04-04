@@ -29,12 +29,12 @@ const Home = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let emails = travellers.map((traveller) => traveller.email);
-    let check = emails.includes(traveller.email);
+    let emails = travellers.map((traveller) => traveller.email.toLowerCase());
+    let check = emails.includes(traveller.email.toLowerCase());
     if (check === true) {
       setVerfication(true);
       setCurrentTraveller(traveller);
-      let person = travellers.filter((n) => n.email === traveller.email);
+      let person = travellers.filter((n) => n.email.toLowerCase() === traveller.email.toLowerCase());
       setTravellerId(person[0]._id);
       setTraveller({ name: "", email: "" });
     } else {
