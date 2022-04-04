@@ -12,6 +12,10 @@
     color: var(--deep_purple)
 }
 
+.trip-name::first-letter {
+    text-transform: uppercase;
+}
+
 .trip-details {
     display: flex;
     flex-direction: row;
