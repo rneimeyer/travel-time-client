@@ -6,6 +6,16 @@
     color: var(--deep_purple);
 }
 
+.return {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.return a {
+    text-decoration: none;
+    color: white;
+}
+
 .trip-name {
     font-family: Billion Dreams;
     font-size: 50px;

@@ -1,4 +1,5 @@
 import "./Trip.css";
+import { Link } from "react-router-dom";
 import Flight from "./../Flight/Flight";
 import Hotel from "./../Hotel/Hotel";
 import Activity from "./../Activity/Activity";
@@ -80,9 +81,21 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
   return (
     <div className="trip">
       {currentTrip.name === undefined ? (
-        <div></div>
+        <div>
+          <div className="no-traveller">
+            <h1>Your Trips</h1>
+            <h3>
+              Please{" "}
+              <Link className="home-link" to="/">
+                sign in
+              </Link>{" "}
+              to view and update your trips!
+            </h3>
+          </div>
+        </div>
       ) : (
         <div>
+          <h6 className="return"><Link to="/all-trips">⬅ All Trips</Link></h6>
           <div className="trip-summary">
             <h1 className="trip-name">{currentTrip.name}</h1>
             <h3>
