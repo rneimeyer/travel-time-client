@@ -61,6 +61,19 @@ const AllTrips = ({
       .then(() => setRefresh(!refresh));
   };
 
+  for (let i = 0; i < trips.length; i++) {
+    trips.sort((a, b) => {
+      console.log(a.start_date, b.start_date);
+      if (a.start_date < b.start_date) {
+        return -1;
+      }
+      if (a.start_date > b.start_date) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
   const yourTrips = trips.map((trip) => {
     let startDate = cleanDate(trip.start_date);
     let endDate = cleanDate(trip.end_date);
