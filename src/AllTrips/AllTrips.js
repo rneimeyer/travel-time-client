@@ -103,7 +103,6 @@ const AllTrips = ({
   useEffect(() => {
     if (currentTraveller !== "") {
       showTrips();
-      console.log("fetch");
     }
   }, [currentTraveller, refresh]);
 

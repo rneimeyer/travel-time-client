@@ -66,14 +66,10 @@ const Trip = ({ urlBase, cleanDate, currentTripId }) => {
   useEffect(() => {
     if (currentTripId !== "") {
       showCurrentTrip();
-      console.log("trip fetch");
     }
   }, [currentTripId, refresh]);
 
   let tripSum = flightSum + hotelSum + activitySum;
-
-  console.log(flightSum);
-  console.log(tripSum);
 
   return (
     <div className="trip">
