@@ -71,7 +71,7 @@
 
 @media only screen and (min-width: 786px) {
     .plane-wing {
-        height: 40vh;
+        width: 70%
     }
     .no-traveller {
         width: 60%;
